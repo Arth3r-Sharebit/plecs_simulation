@@ -28807,3 +28807,4 @@ timestamp,category,freq,duty,rcs,rsa,csa,vin,rl,k,error_msg
 2026-05-11 15:46:55,other,7780000.0,0.6,0.2,6.0,33.5,400.0,200.0,0.5,Idle
 2026-05-11 15:46:55,other,7780000.0,0.6,0.2,6.0,33.5,400.0,200.0,0.6,Idle
 2026-05-11 15:48:05,other,6780000.0,0.5,0.2,0.5,33.5,100,115,0.6,"<Fault -32500: 'method execution error: The server is busy executing the blocking command ""simulate(\'test.v1.1\')"".'>"
+2026-05-11 16:38:23,connection,6780000.0,0.5,0.2,0.5,33.5,100,115,0.6,[Errno 61] Connection refused

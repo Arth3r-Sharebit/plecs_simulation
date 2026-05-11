@@ -234,7 +234,7 @@ def main(freq, duty, rcs, rsa, csa, vin, rl, k):
     # ── 第一层：触发仿真 ──────────────────────────────────────
     try:
         server.plecs.set(model_name, "TimeSpan", "0.02")
-        server.plecs.set(model_name, "MaxStep",  "5e-8")
+        server.plecs.set(model_name, "MaxStep",  "10e-8")
         t0 = time.time()
         sim_results = server.plecs.simulate(model_name)
         t_sim = time.time() - t0
