@@ -791,7 +791,7 @@ Plecs {
       }
       Parameter {
         Variable      "thermal"
-        Value         "ref:C6D06065A"
+        Value         "file:C6D06065A"
         Show          off
       }
       Parameter {
@@ -3209,7 +3209,7 @@ Plecs {
       }
       Parameter {
         Variable      "thermal"
-        Value         "ref:C6D06065A"
+        Value         "file:C6D06065A"
         Show          off
       }
       Parameter {
@@ -3258,7 +3258,7 @@ Plecs {
       }
       Parameter {
         Variable      "thermal"
-        Value         "ref:C6D06065A"
+        Value         "file:C6D06065A"
         Show          off
       }
       Parameter {
@@ -3307,7 +3307,7 @@ Plecs {
       }
       Parameter {
         Variable      "thermal"
-        Value         "ref:C6D06065A"
+        Value         "file:C6D06065A"
         Show          off
       }
       Parameter {
