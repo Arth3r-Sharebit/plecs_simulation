@@ -1,0 +1,18 @@
+PACKAGE plecscombocoder plexim COMPONENTS="plecsrtw plecscoder" \
+	OPTIONS=SUITE SIGN="00D7 CF6A 758D 517E D8D6 8750 0D4C 7200 \
+	5F17 C41C B911 CDC2 27B7 9F12 13CF"
+PACKAGE plecscombo plexim COMPONENTS="plecsedit plecssolve" \
+	OPTIONS=SUITE SIGN="00C8 7A1F E1F6 4100 40EE AE92 29AC 6600 \
+	A0C8 8CA5 004D 8460 4438 F2F1 EB8E"
+FEATURE plecscombocoder plexim 5.0 16-apr-2027 uncounted \
+	HOSTID=USERHOST=young+50ed3c316735 ISSUED=16-apr-2026 \
+	NOTICE="{`name` : `ANKE WANG` , `organization` : `Nanyang \
+	Technological University` , `country` : `SG`}" SN=STUDENT \
+	SIGN="0081 817A C5EF 69AB CF02 4D08 42F7 0C00 6A23 3E4E 0ABF \
+	0A89 6A07 E6AA E5D3"
+FEATURE plecscombo plexim 5.0 16-apr-2027 uncounted \
+	HOSTID=USERHOST=young+50ed3c316735 ISSUED=16-apr-2026 \
+	NOTICE="{`name` : `ANKE WANG` , `organization` : `Nanyang \
+	Technological University` , `country` : `SG`}" SN=STUDENT \
+	SIGN="00B2 086E 233A 1F17 D532 864C B1EF 3B00 E7DE F70A 04E2 \
+	0B5C 4CFC 71A3 A354"

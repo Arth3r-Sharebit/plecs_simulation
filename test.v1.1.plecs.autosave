@@ -5,15 +5,15 @@ Plecs {
   StartTime     "0.0"
   TimeSpan      "0.02"
   Timeout       ""
-  Solver        "auto"
-  MaxStep       "10e-8"
+  Solver        "radau"
+  MaxStep       "3e-7"
   InitStep      "-1"
   FixedStep     "1e-3"
   Refine        "1"
-  ZCStepSize    "1e-9"
-  RelTol        "1e-6"
+  ZCStepSize    "1e-3"
+  RelTol        "1e-3"
   AbsTol        "-1"
-  TurnOnThreshold "0"
+  TurnOnThreshold " 1e-3"
   NonIdealSwitchResistance "1"
   SyncFixedStepTasks "2"
   UseSingleCommonBaseRate "2"
@@ -97,7 +97,7 @@ Plecs {
     Index         "5"
   }
   Schematic {
-    Location      [48, 53; 1440, 873]
+    Location      [52, 53; 1424, 853]
     ZoomFactor    0.873834
     SliderPosition [0, 0]
     ShowBrowser   off
