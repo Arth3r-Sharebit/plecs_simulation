@@ -4,7 +4,9 @@ import time             # 用于计时
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-
+import os
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import concurrent
 
 # True = 扫参模式（遍历所有参数组合）；
 # False = 单次仿真（用 init_ 默认值）
@@ -197,6 +199,25 @@ def save_data_and_plot(sim_results, freq, duty, rcs, rsa, csa, vin, rl, k, folde
     return n_ch, tag
 
 
+def run_single_simulation(params):
+    idx, total, freq, duty, rcs, rsa, csa, vin, rl, k = params
+
+    try:
+        server.plecs.set(model_name, "InitializationCommands",
+                             build_init_commands(FIXED_Rcs, rsa, FIXED_Csa, vin, rl, k))
+            # ② 把频率和占空比写入 C-Script Declarations
+        server.plecs.set(block_path, "Declarations",
+                             c_template.format(freq_val=freq, d_val=duty))
+            # ③ 触发仿真并保存结果
+        main(freq, duty, FIXED_Rcs, rsa, FIXED_Csa, vin, rl, k)
+        elapsed = time.time() - t_start
+        print(f"  累计耗时 {elapsed:.0f}s，预计剩余 {elapsed/i*(total-i):.0f}s")
+
+    except Exception as e:
+        return log_error_case(freq, duty, rcs, rsa, csa, vin, rl, k, str(e))
+
+
+
 def main(freq, duty, rcs, rsa, csa, vin, rl, k):
     """
     触发一次仿真，按结果分类保存：
@@ -254,20 +275,40 @@ if __name__ == "__main__":
             Vin_list, RL_list, k_list          # Tinit、Csa、Rcs 已固定，不在此扫描
         ))
         total = len(all_combos)
+
+        task_args = [
+            (i, total, f, d, r, v, rl, k) 
+            for i, (f, d, r, v, rl, k) in enumerate(all_combos, 1)
+        ]
         t_start = time.time()
 
-        for i, (freq, duty, rsa, vin, rl, k) in enumerate(all_combos, 1):
-            print(f"\n[{i}/{total}]", end=" ")
+
+        MAX_WORKERS = 8 
+        
+        print(f"开始多线程仿真，总任务数: {total}，线程数: {MAX_WORKERS}")
+        
+        with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+            # 提交任务
+            futures = [executor.submit(run_single_simulation, arg) for arg in task_args]
+            
+            # 实时获取完成情况
+            for i, future in enumerate(concurrent.futures.as_completed(futures), 1):
+                result = future.result()
+                elapsed = time.time() - t_start
+                print(f"{result} | 累计耗时 {elapsed:.0f}s | 进度: {i}/{total}")
+
+        #for i, (freq, duty, rsa, vin, rl, k) in enumerate(all_combos, 1):
+        #    print(f"\n[{i}/{total}]", end=" ")
             # ① 把热路/电路参数写入 PLECS InitializationCommands（Tinit/Csa/Rcs 取固定值）
-            server.plecs.set(model_name, "InitializationCommands",
-                             build_init_commands(FIXED_Rcs, rsa, FIXED_Csa, vin, rl, k))
+        #    server.plecs.set(model_name, "InitializationCommands",
+        #                     build_init_commands(FIXED_Rcs, rsa, FIXED_Csa, vin, rl, k))
             # ② 把频率和占空比写入 C-Script Declarations
-            server.plecs.set(block_path, "Declarations",
-                             c_template.format(freq_val=freq, d_val=duty))
+        #    server.plecs.set(block_path, "Declarations",
+        #                     c_template.format(freq_val=freq, d_val=duty))
             # ③ 触发仿真并保存结果
-            main(freq, duty, FIXED_Rcs, rsa, FIXED_Csa, vin, rl, k)
-            elapsed = time.time() - t_start
-            print(f"  累计耗时 {elapsed:.0f}s，预计剩余 {elapsed/i*(total-i):.0f}s")
+        #    main(freq, duty, FIXED_Rcs, rsa, FIXED_Csa, vin, rl, k)
+        #    elapsed = time.time() - t_start
+        #    print(f"  累计耗时 {elapsed:.0f}s，预计剩余 {elapsed/i*(total-i):.0f}s")
 
     else:
         # 单次仿真：使用顶部定义的 init_ 默认值，Rcs 取固定值
