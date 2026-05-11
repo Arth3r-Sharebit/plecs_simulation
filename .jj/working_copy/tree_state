@@ -19,8 +19,7 @@ Ydocker/Output/Pic_Correct/freq6.78e+06_duty50_rcs0.2_rsa0.5_csa33.5_vin100_rl11
 docker/plecs/Deprecated.plecsĞĞ¥ËÔ3Éép,
 docker/plecs/ExecutionLog.json
 ƒ‹Ÿ¶á3à"
-docker/plecs/PLECSØ™ŒÂÔ3(
-docker/plecs/PLECS.binà«õËÔ3€¶è?)
+docker/plecs/PLECSØ™ŒÂÔ3)
 docker/plecs/PLECS_serverØ™ŒÂÔ3.
 docker/plecs/PLECS_server.bin İ¦ËÔ3øë0
 docker/plecs/QtWebEngineProcessÀµêÜ©3¨û*
@@ -929,8 +928,7 @@ $docker/plecs/libQt6QuickWidgets.so.6˜¤‚İ©3ˆ¹6
 docker/plecs/libQt6Svg.so.6°œ‚İ©3è÷#6
 %docker/plecs/libQt6WaylandClient.so.6€¬‚İ©3ÈäCF
 5docker/plecs/libQt6WaylandEglClientHwIntegration.so.6€¬‚İ©3ˆ“3
-"docker/plecs/libQt6WebChannel.so.6˜¤‚İ©3ˆø7
-%docker/plecs/libQt6WebEngineCore.so.6˜¤‚İ©3¸„X9
+"docker/plecs/libQt6WebChannel.so.6˜¤‚İ©3ˆø9
 (docker/plecs/libQt6WebEngineWidgets.so.6€¬‚İ©3ˆ·
 1
 docker/plecs/libQt6Widgets.so.6°œ‚İ©3øş€/
@@ -6880,10 +6878,9 @@ jdocker/plecs/tsps/tsp_ti_c2000/demos/vector_control_induction_machine/vector_co
 Ø™ŒÂÔ3Î.
 docker/plecs/wbstoolbox/plecs.mØ™ŒÂÔ3Æ¸&
 docker/plecs/webengineØ™ŒÂÔ3+
-docker/plecs/webengine.binÈ³õËÔ3˜³:=
-,docker/plecs-standalone-5-0-3_linux64.tar.gzˆ·Ä²á3ûÿÿª"
+docker/plecs/webengine.binÈ³õËÔ3˜³:"
 docker/run_docker.md
-²±ß²á3¨G
+ËşÊá3¨G
 9infineon-coolgan-650v-plecs-simulationmodels-en/.DS_Store
 ÏòÉá3„0^
 Pinfineon-coolgan-650v-plecs-simulationmodels-en/CoolGaN 650V PLECS/C6D06065A.xml
@@ -6926,5 +6923,6 @@ server.log½Š€·á3
 simulation_py.py
 Ç¼ÊÉá3¬o
 test.v1.1.plecsœ¾ÀÉá3³¼'
-test.v1.1.plecs.autosave„ğÊÉá3³¼
- *ìıÒô¾ìu=‡ş–ƒ±ÌkÉb0
+test.v1.1.plecs.autosave„ğÊÉá3³¼
+	trace.logì†·á3´†
+ *'T~vVãŒ¦ç¾…ˆyÒ³dü·0
