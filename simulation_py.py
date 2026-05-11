@@ -200,7 +200,7 @@ def save_data_and_plot(sim_results, freq, duty, rcs, rsa, csa, vin, rl, k, folde
 
 
 def run_single_simulation(params):
-    idx, total, freq, duty, rcs, rsa, csa, vin, rl, k = params
+    idx, total, freq, duty, rsa, vin, rl, k = params
 
     try:
         server.plecs.set(model_name, "InitializationCommands",
@@ -214,7 +214,7 @@ def run_single_simulation(params):
         print(f"  累计耗时 {elapsed:.0f}s，预计剩余 {elapsed/i*(total-i):.0f}s")
 
     except Exception as e:
-        return log_error_case(freq, duty, rcs, rsa, csa, vin, rl, k, str(e))
+        return log_error_case(freq, duty, FIXED_Rcs, rsa, FIXED_Csa, vin, rl, k, str(e))
 
 
 
@@ -234,7 +234,7 @@ def main(freq, duty, rcs, rsa, csa, vin, rl, k):
     # ── 第一层：触发仿真 ──────────────────────────────────────
     try:
         server.plecs.set(model_name, "TimeSpan", "0.02")
-        server.plecs.set(model_name, "MaxStep",  "1e-8")
+        server.plecs.set(model_name, "MaxStep",  "5e-8")
         t0 = time.time()
         sim_results = server.plecs.simulate(model_name)
         t_sim = time.time() - t0
