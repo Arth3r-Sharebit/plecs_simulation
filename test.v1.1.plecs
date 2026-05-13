@@ -1,19 +1,19 @@
 Plecs {
   Name          "test.v1.1"
   Version       "5.0"
-  CircuitModel  "ContStateSpace"
+  CircuitModel  "DiscStateSpace"
   StartTime     "0.0"
   TimeSpan      "0.02"
   Timeout       ""
   Solver        "radau"
-  MaxStep       "1e-3"
+  MaxStep       "1e-8"
   InitStep      "-1"
   FixedStep     "1e-3"
   Refine        "1"
-  ZCStepSize    "1e-3"
-  RelTol        "1e-3"
+  ZCStepSize    "1e-5"
+  RelTol        "1e-5"
   AbsTol        "-1"
-  TurnOnThreshold " 1e-3"
+  TurnOnThreshold "0"
   NonIdealSwitchResistance "1"
   SyncFixedStepTasks "2"
   UseSingleCommonBaseRate "2"
@@ -97,9 +97,9 @@ Plecs {
     Index         "5"
   }
   Schematic {
-    Location      [52, 53; 1424, 853]
-    ZoomFactor    0.873834
-    SliderPosition [0, 0]
+    Location      [45, 53; 1440, 873]
+    ZoomFactor    1.14435
+    SliderPosition [0, 168]
     ShowBrowser   off
     BrowserWidth  158
     Component {
@@ -1027,11 +1027,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [0, 24; 1707, 1089]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADqfwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQEAAAA0AAACIQAAAFcA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAADoAA"
-"ACOgAAAGEA////+wAAAAwAVAByAGEAYwBlAHMBAAACWwAAAYIAAABhAP///wAAAAMAAAarAAAAW/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABqsAAABEAP///wAABfEAAAOpAAAA"
+      Location      [0, 24; 1707, 1098]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADsvwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQEAAAA0AAACJgAAAFcA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAADoAA"
+"ACOgAAAGEA////+wAAAAwAVAByAGEAYwBlAHMBAAACYAAAAYYAAABhAP///wAAAAMAAAarAAAAW/w"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABqsAAABEAP///wAABfEAAAOyAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAEAAAAYAFMAYQB2AGUAZAAgAHYAaQBlAHcAIAAxAAAAAAAAA"
@@ -3504,7 +3504,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "T_average"
-        Value         "1/10e3"
+        Value         "1/10e2"
         Show          off
       }
       Parameter {
@@ -3605,11 +3605,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [0, 24; 1707, 1215]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAAD9fwCAAAAA/sAAAAQAFoAbwBvA"
+      Location      [0, 24; 1707, 1065]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADX/wCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAC8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwEAAAA0AA"
-"AD9QAAAGEA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABhAP///wAAAAMAAAarAAAAjfw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABqsAAABEAP///wAABfEAAAP1AAAA"
+"ADXwAAAGEA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABhAP///wAAAAMAAAarAAAAjfw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABqsAAABEAP///wAABfEAAANfAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -3663,11 +3663,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [0, 24; 1707, 1035]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADUfwCAAAAA/sAAAAQAFoAbwBvA"
+      Location      [0, 24; 1707, 1053]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADY/wCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAC8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwEAAAA0AA"
-"ADUQAAAGEA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABhAP///wAAAAMAAAarAAAAffw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABqsAAABEAP///wAABfEAAANRAAAA"
+"ADYwAAAGEA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABhAP///wAAAAMAAAarAAAAffw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABqsAAABEAP///wAABfEAAANjAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -3741,7 +3741,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "T_average"
-        Value         "1/10e3"
+        Value         "1/10e2"
         Show          off
       }
       Parameter {
@@ -3789,11 +3789,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [0, 24; 1707, 1008]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADNvwCAAAAA/sAAAAQAFoAbwBvA"
+      Location      [0, 24; 1707, 1017]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADP/wCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAC8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwEAAAA0AA"
-"ADNgAAAGEA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABhAP///wAAAAMAAAarAAAAffw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABqsAAABEAP///wAABfEAAAM2AAAA"
+"ADPwAAAGEA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABhAP///wAAAAMAAAarAAAAffw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABqsAAABEAP///wAABfEAAAM/AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -3867,7 +3867,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "T_average"
-        Value         "1/10e3"
+        Value         "1/10e2"
         Show          off
       }
       Parameter {
@@ -3993,7 +3993,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "T_average"
-        Value         "1/10e3"
+        Value         "1/10e2"
         Show          off
       }
       Parameter {

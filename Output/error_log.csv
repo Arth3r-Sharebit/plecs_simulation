@@ -28808,3 +28808,36 @@ timestamp,category,freq,duty,rcs,rsa,csa,vin,rl,k,error_msg
 2026-05-11 15:46:55,other,7780000.0,0.6,0.2,6.0,33.5,400.0,200.0,0.6,Idle
 2026-05-11 15:48:05,other,6780000.0,0.5,0.2,0.5,33.5,100,115,0.6,"<Fault -32500: 'method execution error: The server is busy executing the blocking command ""simulate(\'test.v1.1\')"".'>"
 2026-05-11 16:38:23,connection,6780000.0,0.5,0.2,0.5,33.5,100,115,0.6,[Errno 61] Connection refused
+2026-05-12 09:21:04,other,6780000.0,0.5,0.2,0.5,33.5,100,115,0.6,"<Fault -32500: 'method execution error: The server is busy executing the blocking command ""simulate(\'test.v1.1_copy1\')"".'>"
+2026-05-12 09:58:01,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,Request-sent
+2026-05-12 09:58:01,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.1,Idle
+2026-05-12 09:58:38,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.1,cannot access local variable 'model_name' where it is not associated with a value
+2026-05-12 09:58:38,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,cannot access local variable 'model_name' where it is not associated with a value
+2026-05-12 09:59:51,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.1,cannot access local variable 'model_name' where it is not associated with a value
+2026-05-12 09:59:51,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,cannot access local variable 'model_name' where it is not associated with a value
+2026-05-12 10:00:47,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.1,cannot access local variable 'model_name' where it is not associated with a value
+2026-05-12 10:00:47,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,cannot access local variable 'model_name' where it is not associated with a value
+2026-05-12 10:01:30,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.1,cannot access local variable 'model_name' where it is not associated with a value
+2026-05-12 10:05:12,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.1,cannot access local variable 'model_name' where it is not associated with a value
+2026-05-12 10:06:52,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,Request-sent
+2026-05-12 10:06:52,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.1,Idle
+2026-05-12 10:07:24,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,Request-sent
+2026-05-12 10:07:24,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.1,Idle
+2026-05-12 10:08:00,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,Request-sent
+2026-05-12 10:08:00,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.1,Idle
+2026-05-12 10:08:41,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,Request-sent
+2026-05-12 10:08:41,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.1,Idle
+2026-05-12 10:14:14,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,Request-sent
+2026-05-12 10:14:14,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.1,Idle
+2026-05-12 10:16:56,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,"<Fault -32500: 'method execution error: The server is busy executing the blocking command ""simulate(\'test.v1.1\')"".'>"
+2026-05-12 10:17:19,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,"<Fault -32500: 'method execution error: The server is busy executing the blocking command ""simulate(\'test.v1.1\')"".'>"
+2026-05-12 10:17:42,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,"<Fault -32500: 'method execution error: The server is busy executing the blocking command ""simulate(\'test.v1.1\')"".'>"
+2026-05-12 10:17:45,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,"<Fault -32500: 'method execution error: The server is busy executing the blocking command ""simulate(\'test.v1.1\')"".'>"
+2026-05-12 11:14:48,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,'set' object has no attribute 'append'
+2026-05-12 11:18:40,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,create_sim_struct() missing 2 required positional arguments: 'lr' and 'k'
+2026-05-12 11:19:38,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,'dict' object has no attribute 'append'
+2026-05-12 11:21:11,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,'dict' object has no attribute 'append'
+2026-05-12 11:21:51,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,<Fault -32602: 'server error: invalid method parameters'>
+2026-05-12 11:23:22,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,<Fault -32602: 'server error: invalid method parameters'>
+2026-05-12 11:23:47,other,5780000.0,0.2,0.2,0.2,33.5,50.0,50.0,0.2,<Fault -32602: 'server error: invalid method parameters'>
+2026-05-12 18:13:49,other,6780000.0,0.5,0.2,0.5,33.5,100,115,0.6,"<Fault -32500: 'method execution error: The server is busy executing the blocking command ""simulate(\'test.v1.1.copy1\')"".'>"

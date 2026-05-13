@@ -1,15 +1,19 @@
 
 	.DS_Store
-Ë‘óÉá3„@
+Ê¦öá3„@
 Output/.DS_Store
-ÒòÉá3„0b
-SOutput/Data_Correct/freq6.78e+06_duty50_rcs0.2_rsa0.5_csa33.5_vin100_rl115_k0.6.csvöÈ²á3»Ğa
-ROutput/Pic_Correct/freq6.78e+06_duty50_rcs0.2_rsa0.5_csa33.5_vin100_rl115_k0.6.pngÈÈ²á3½à	$
-Output/error_log.csvà÷¿±á3µÖ•
+ÒòÉá3„0d
+UOutput/Data_Correct/freq5.78e+06_duty20_rcs0.2_rsa0.2_csa33.5_vin50.0_rl50.0_k0.2.csv¤ËğÏá3ŠÛb
+SOutput/Data_Correct/freq6.78e+06_duty50_rcs0.2_rsa0.5_csa33.5_vin100_rl115_k0.6.csvÆÍ«Îá3©Ğc
+TOutput/Pic_Correct/freq5.78e+06_duty20_rcs0.2_rsa0.2_csa33.5_vin50.0_rl50.0_k0.2.png‘ËğÏá3ºŒ
+a
+ROutput/Pic_Correct/freq6.78e+06_duty50_rcs0.2_rsa0.5_csa33.5_vin100_rl115_k0.6.png±Í«Îá3É¶
+$
+Output/error_log.csv¹ê¶İá3­ö•
 docker/.DS_Store
-«îôÉá3„0
+¢‹Ëá3„0
 docker/Dockerfile
-®±ß²á3³i
+ĞÑËá3Âi
 Zdocker/Output/Data_Correct/freq6.78e+06_duty50_rcs0.2_rsa0.5_csa33.5_vin100_rl115_k0.6.csv÷×Éá3©Ğh
 Ydocker/Output/Pic_Correct/freq6.78e+06_duty50_rcs0.2_rsa0.5_csa33.5_vin100_rl115_k0.6.pngèö×Éá3É¶
 )
@@ -18,7 +22,7 @@ Ydocker/Output/Pic_Correct/freq6.78e+06_duty50_rcs0.2_rsa0.5_csa33.5_vin100_rl11
 docker/plecs/Components.plecsèÈ¥ËÔ3ÛŞÖ,
 docker/plecs/Deprecated.plecsĞĞ¥ËÔ3Éép,
 docker/plecs/ExecutionLog.json
-ƒ‹Ÿ¶á3à"
+ŸÌ½Ìá3à"
 docker/plecs/PLECSØ™ŒÂÔ3)
 docker/plecs/PLECS_serverØ™ŒÂÔ3.
 docker/plecs/PLECS_server.bin İ¦ËÔ3øë0
@@ -6917,12 +6921,22 @@ Xinfineon-coolgan-650v-plecs-simulationmodels-en/CoolGaN 650V PLECS/IGT65R140D2-
 plecs_out.logùºõµá3
 plecs_output.log¿˜·¶á3
 qt.log
-ú¥í¶á3®*
+ú¥í¶á3®*.
+!scripts/py_script/.python-version	Úç›Òá3&
+scripts/py_script/README.mdÛç›Òá3'
+scripts/py_script/main.py
+ÄÜØá3Õ.
+ scripts/py_script/pyproject.toml
+ûÛğÒá3À(
+scripts/py_script/uv.lockË—òÒá3’›
 
 server.log½Š€·á3
 simulation_py.py
-Ç¼ÊÉá3¬o
-test.v1.1.plecsœ¾ÀÉá3³¼'
-test.v1.1.plecs.autosave„ğÊÉá3³¼
+—”³İá3¬o'
+simulation_single_test.py
+ã‘öá3Š"
+test.v1.1.plecsä•éŞá3°¼)
+test_for_batch/duty_29.csvàí¢öá3Š3
+$test_for_batch/plecs_result_2900.pngÕí¢öá3Ù¯
 	trace.logì†·á3´†
- *'T~vVãŒ¦ç¾…ˆyÒ³dü·0
+ *×¯g“Ëo¸<?lı<Öe 9/0
