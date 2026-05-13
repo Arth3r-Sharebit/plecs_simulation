@@ -11,6 +11,7 @@ from model_obj import Simulation
 import sys
 from datetime import datetime
 import math
+from multi_tasks_main import multi_tasks_main
 
 FIXED_INIT_COMMANDS = {
     "InitializationCommands":
@@ -77,4 +78,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    multi_tasks_main()
