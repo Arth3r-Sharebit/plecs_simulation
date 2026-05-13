@@ -1,1 +1,6 @@
-./docker
+/docker
+/license.lic
+*.log
+Output/
+.DS_Store
+.jj/
