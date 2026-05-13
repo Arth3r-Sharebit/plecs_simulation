@@ -23,7 +23,8 @@ Ydocker/Output/Pic_Correct/freq6.78e+06_duty50_rcs0.2_rsa0.5_csa33.5_vin100_rl11
 docker/plecs/Deprecated.plecsĞĞ¥ËÔ3Éép,
 docker/plecs/ExecutionLog.json
 ŸÌ½Ìá3à"
-docker/plecs/PLECSØ™ŒÂÔ3)
+docker/plecs/PLECSØ™ŒÂÔ3(
+docker/plecs/PLECS.binà«õËÔ3€¶è?)
 docker/plecs/PLECS_serverØ™ŒÂÔ3.
 docker/plecs/PLECS_server.bin İ¦ËÔ3øë0
 docker/plecs/QtWebEngineProcessÀµêÜ©3¨û*
@@ -932,7 +933,8 @@ $docker/plecs/libQt6QuickWidgets.so.6˜¤‚İ©3ˆ¹6
 docker/plecs/libQt6Svg.so.6°œ‚İ©3è÷#6
 %docker/plecs/libQt6WaylandClient.so.6€¬‚İ©3ÈäCF
 5docker/plecs/libQt6WaylandEglClientHwIntegration.so.6€¬‚İ©3ˆ“3
-"docker/plecs/libQt6WebChannel.so.6˜¤‚İ©3ˆø9
+"docker/plecs/libQt6WebChannel.so.6˜¤‚İ©3ˆø7
+%docker/plecs/libQt6WebEngineCore.so.6˜¤‚İ©3¸„X9
 (docker/plecs/libQt6WebEngineWidgets.so.6€¬‚İ©3ˆ·
 1
 docker/plecs/libQt6Widgets.so.6°œ‚İ©3øş€/
@@ -6882,7 +6884,8 @@ jdocker/plecs/tsps/tsp_ti_c2000/demos/vector_control_induction_machine/vector_co
 Ø™ŒÂÔ3Î.
 docker/plecs/wbstoolbox/plecs.mØ™ŒÂÔ3Æ¸&
 docker/plecs/webengineØ™ŒÂÔ3+
-docker/plecs/webengine.binÈ³õËÔ3˜³:"
+docker/plecs/webengine.binÈ³õËÔ3˜³:=
+,docker/plecs-standalone-5-0-3_linux64.tar.gzõ—ŒËá3ûÿÿª"
 docker/run_docker.md
 ËşÊá3¨G
 9infineon-coolgan-650v-plecs-simulationmodels-en/.DS_Store
@@ -6921,22 +6924,54 @@ Xinfineon-coolgan-650v-plecs-simulationmodels-en/CoolGaN 650V PLECS/IGT65R140D2-
 plecs_out.logùºõµá3
 plecs_output.log¿˜·¶á3
 qt.log
-ú¥í¶á3®*.
-!scripts/py_script/.python-version	Úç›Òá3&
-scripts/py_script/README.mdÛç›Òá3'
-scripts/py_script/main.py
-ÄÜØá3Õ.
- scripts/py_script/pyproject.toml
-ûÛğÒá3À(
-scripts/py_script/uv.lockË—òÒá3’›
+ú¥í¶á3®*+
+run_simulation/.python-version	ğ¸Õöá3q
+brun_simulation/Output/Data_Correct/freq6.78e+06_duty50_rcs0.2_rsa0.5_csa33.5_vin100_rl115_k0.6.csvÌ·ûá3©Ğp
+arun_simulation/Output/Pic_Correct/freq6.78e+06_duty50_rcs0.2_rsa0.5_csa33.5_vin100_rl115_k0.6.pngÌ·ûá3Ğù	#
+run_simulation/README.mdñ¸Õöá36
+)run_simulation/connect_server/__init__.py	İÊ‰÷á3*P
+Brun_simulation/connect_server/__pycache__/__init__.cpython-313.pyc
+ü–†ùá3äV
+Hrun_simulation/connect_server/__pycache__/connect_server.cpython-313.pyc
+ü–†ùá3ö=
+/run_simulation/connect_server/connect_server.py
+´óˆ÷á3Ó$
+run_simulation/main.py
+äòàıá3×1
+$run_simulation/model_obj/__init__.py	Œ¸¤÷á3!K
+=run_simulation/model_obj/__pycache__/__init__.cpython-313.pyc
+ı–†ùá3èL
+>run_simulation/model_obj/__pycache__/model_obj.cpython-313.pyc
+„¢ˆúá3Á3
+%run_simulation/model_obj/model_obj.py
+Ê„ˆúá3ş	+
+run_simulation/pyproject.toml
+½Øöá3ä1
+$run_simulation/save_data/__init__.py	àäõöá3+K
+=run_simulation/save_data/__pycache__/__init__.cpython-313.pyc
+ú–†ùá3òN
+@run_simulation/save_data/__pycache__/save_vector.cpython-313.pyc
+êÓúá3é.3
+(run_simulation/save_data/save_picture.pyË¾îöá35
+'run_simulation/save_data/save_vector.py
+ÒÍÓúá3¶!6
++run_simulation/set_model_params/__init__.py©Ó÷á3R
+Drun_simulation/set_model_params/__pycache__/__init__.cpython-313.pyc
+ş–†ùá3ÀS
+Erun_simulation/set_model_params/__pycache__/set_model.cpython-313.pyc
+ÃÖ‘ıá3¦:
+,run_simulation/set_model_params/set_model.py
+ ’Šıá3î%
+run_simulation/uv.lock¨½Øöá3¼ü
+scripts/py_script/pyplecs
 
 server.log½Š€·á3
 simulation_py.py
 —”³İá3¬o'
 simulation_single_test.py
-ã‘öá3Š"
-test.v1.1.plecsä•éŞá3°¼)
-test_for_batch/duty_29.csvàí¢öá3Š3
-$test_for_batch/plecs_result_2900.pngÕí¢öá3Ù¯
+¢…æùá3Ñ"
+test.v1.1.plecs©­ ûá3ÆÀ)
+test_for_batch/duty_29.csvÍøêùá3®¸3
+$test_for_batch/plecs_result_2900.pngÀøêùá3æ	
 	trace.logì†·á3´†
- *×¯g“Ëo¸<?lı<Öe 9/0
+ *ú²‚İ<9ú•Fóñ"j-Rj œ0

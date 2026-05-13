@@ -1,19 +1,19 @@
 Plecs {
   Name          "test.v1.1"
   Version       "5.0"
-  CircuitModel  "DiscStateSpace"
+  CircuitModel  "ContStateSpace"
   StartTime     "0.0"
   TimeSpan      "0.02"
   Timeout       ""
   Solver        "radau"
-  MaxStep       "1e-8"
+  MaxStep       "3e-7"
   InitStep      "-1"
   FixedStep     "1e-3"
   Refine        "1"
-  ZCStepSize    "1e-5"
-  RelTol        "1e-5"
+  ZCStepSize    "1e-3"
+  RelTol        "1e-3"
   AbsTol        "-1"
-  TurnOnThreshold "0"
+  TurnOnThreshold " 1e-3"
   NonIdealSwitchResistance "1"
   SyncFixedStepTasks "2"
   UseSingleCommonBaseRate "2"
@@ -28,8 +28,8 @@ Plecs {
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
   FixedPointDatatypeOverride "1"
-  InitializationCommands "Tinit = 25.1;\nRcs = 0.2;\nRsa = 0.5;\nCsa = 33.5;\n"
-"Vin = 100;\nRL = 115;\nLt = 1.64e-06;\nLr = 2.79e-06;\nk = 0.6;\nM = 1.283439"
+  InitializationCommands "Tinit = 25.1;\nRcs = 0.2;\nCsa = 33.5;\nRsa = 0.5;\n"
+"Vin = 100;\nRL = 115;\nk = 0.6;\nLt = 1.64e-06;\nLr = 2.79e-06;\nM = 1.283439"
 "1298382639e-06;\n"
   InitialState  "1"
   SystemState   ""
@@ -43,7 +43,13 @@ Plecs {
   CodeGenOutputDir ""
   CodeGenExtraOpts ""
   CodeGenTarget "Generic"
-  CodeGenTargetSettings ""
+  CodeGenTargetSettings "AAAAfwAAAAAbQ29kZUdlblRhcmdldDo6U2V0dGluZ3NNYXAAAAAAA"
+"QAAAA4ARwBlAG4AZQByAGkAYwAAAAUAAAAaAEUAWABUAEUAUgBOAEEATABfAE0ATwBEAEUAAAACAD"
+"AAAAA8AEcARQBOAEUAUgBBAFQARQBfAE8AVQBUAFAAVQBUAF8AQQBOAEQAXwBVAFAARABBAFQARQB"
+"fAEYAQwBOAAAAAgAwAAAASgBVAFMARQBfAEQAQQBUAEEAXwBUAFkAUABFAFMAXwBGAE8AUgBfAFQA"
+"VQBOAEEAQgBMAEUAXwBQAEEAUgBBAE0ARQBUAEUAUgBTAAAAAgAxAAAAOgBVAFMARQBfAEUAWABUA"
+"EUAUgBOAF8ATQBPAEQARQBMAF8ARABBAFQAQQBfAFMAVABSAFUAQwBUAFMAAAACADEAAAA0AFUAUw"
+"BFAF8AUwBUAEEAUgBUAF8AVABJAE0ARQBfAEkATgBfAEkATgBJAFQAXwBGAEMATgAAAAIAMQ=="
   ExtendedMatrixPrecision "1"
   MatrixSignificanceCheck "2"
   RemoveUnusedStateSpaceOutputs "2"
@@ -97,9 +103,9 @@ Plecs {
     Index         "5"
   }
   Schematic {
-    Location      [45, 53; 1440, 873]
-    ZoomFactor    1.14435
-    SliderPosition [0, 168]
+    Location      [46, 53; 1440, 873]
+    ZoomFactor    0.873834
+    SliderPosition [0, 88]
     ShowBrowser   off
     BrowserWidth  158
     Component {
@@ -1027,11 +1033,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [0, 24; 1707, 1098]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADsvwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQEAAAA0AAACJgAAAFcA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAADoAA"
-"ACOgAAAGEA////+wAAAAwAVAByAGEAYwBlAHMBAAACYAAAAYYAAABhAP///wAAAAMAAAarAAAAW/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABqsAAABEAP///wAABfEAAAOyAAAA"
+      Location      [0, 24; 1707, 1089]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADqfwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQEAAAA0AAACIQAAAFcA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAADoAA"
+"ACOgAAAGEA////+wAAAAwAVAByAGEAYwBlAHMBAAACWwAAAYIAAABhAP///wAAAAMAAAarAAAAW/w"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABqsAAABEAP///wAABfEAAAOpAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAEAAAAYAFMAYQB2AGUAZAAgAHYAaQBlAHcAIAAxAAAAAAAAA"
@@ -2651,7 +2657,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "DialogGeometry"
-        Value         "[597 255 493 515]"
+        Value         "[597 255 562 515]"
         Show          off
       }
       Parameter {
@@ -3504,7 +3510,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "T_average"
-        Value         "1/10e2"
+        Value         "1/10e3"
         Show          off
       }
       Parameter {
@@ -3605,11 +3611,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [0, 24; 1707, 1065]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADX/wCAAAAA/sAAAAQAFoAbwBvA"
+      Location      [0, 24; 1707, 1215]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAAD9fwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAC8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwEAAAA0AA"
-"ADXwAAAGEA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABhAP///wAAAAMAAAarAAAAjfw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABqsAAABEAP///wAABfEAAANfAAAA"
+"AD9QAAAGEA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABhAP///wAAAAMAAAarAAAAjfw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABqsAAABEAP///wAABfEAAAP1AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -3663,11 +3669,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [0, 24; 1707, 1053]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADY/wCAAAAA/sAAAAQAFoAbwBvA"
+      Location      [0, 24; 1707, 1035]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADUfwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAC8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwEAAAA0AA"
-"ADYwAAAGEA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABhAP///wAAAAMAAAarAAAAffw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABqsAAABEAP///wAABfEAAANjAAAA"
+"ADUQAAAGEA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABhAP///wAAAAMAAAarAAAAffw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABqsAAABEAP///wAABfEAAANRAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -3741,7 +3747,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "T_average"
-        Value         "1/10e2"
+        Value         "1/10e3"
         Show          off
       }
       Parameter {
@@ -3789,11 +3795,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [0, 24; 1707, 1017]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADP/wCAAAAA/sAAAAQAFoAbwBvA"
+      Location      [0, 24; 1707, 1008]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADNvwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAC8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwEAAAA0AA"
-"ADPwAAAGEA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABhAP///wAAAAMAAAarAAAAffw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABqsAAABEAP///wAABfEAAAM/AAAA"
+"ADNgAAAGEA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABhAP///wAAAAMAAAarAAAAffw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABqsAAABEAP///wAABfEAAAM2AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -3867,7 +3873,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "T_average"
-        Value         "1/10e2"
+        Value         "1/10e3"
         Show          off
       }
       Parameter {
@@ -3993,7 +3999,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "T_average"
-        Value         "1/10e2"
+        Value         "1/10e3"
         Show          off
       }
       Parameter {

@@ -83,6 +83,7 @@ if __name__ == '__main__':
     print("begin")
     print(datetime.now())
     print(server.system.listMethods())
+    server.plecs.set(model_name, "InitializationCommands", "Tinit=25")
     sim_results = server.plecs.simulate(model_name, sim_list)
 
     print(datetime.now())
