@@ -68,7 +68,7 @@ def multi_tasks_main():
             sim_results = simulation.run_single_simulation(dynamic_params)
             print(f"  [计时] simulation costs: {time.time()-_t:.1f}s")
 
-            save_data_and_plot(sim_results, simulation.freq, simulation.duty,
+            save_data_and_plot(sim_results, sample[0], sample[1],
                            dynamic_params["InitializationCommands"]["Rcs"],
                            dynamic_params["InitializationCommands"]["Rsa"],
                            dynamic_params["InitializationCommands"]["Csa"],
@@ -82,4 +82,4 @@ def multi_tasks_main():
         
         except Exception as e:
             print(e)
-            raise 
+            continue
