@@ -12,6 +12,7 @@ import sys
 from datetime import datetime
 import math
 from multi_tasks_main import multi_tasks_main
+from json_main import json_main
 
 FIXED_INIT_COMMANDS = {
     "InitializationCommands":
@@ -78,4 +79,4 @@ def main():
 
 
 if __name__ == "__main__":
-    multi_tasks_main()
+    json_main()

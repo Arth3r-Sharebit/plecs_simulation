@@ -2,9 +2,12 @@ from __future__ import annotations
 import xmlrpc.client
 from typing import TYPE_CHECKING
 import math
+import json
+import requests
 
 if TYPE_CHECKING:
     from model_obj import Simulation
+    from model_obj.json_rpc_model import JsonSimulation
 
 c_template = """
 #include <math.h>
@@ -24,7 +27,63 @@ def set_model_init(simulation: Simulation):
     simulation.server.plecs.set(simulation.model_name, "ZCStepSize",    
                                 simulation.zc_step_size)
 
+def set_model_init_json(jsonsimulation: JsonSimulation):
 
+    response = jsonsimulation.session.post(
+                        jsonsimulation.url,
+                        json = {
+                            "jsonrpc": "2.0", 
+                            "method": "plecs.set",
+                            "params": [jsonsimulation.model_name, 
+                                       "TimeSpan",
+                               jsonsimulation.time_span],
+                        "id": jsonsimulation._get_id()
+                        }
+                    )
+    
+    error = response.json().get('error')
+    if error:
+        raise Exception("Initialization failed.")
+    
+    
+    response = jsonsimulation.session.post(
+                        jsonsimulation.url,
+                        json = {
+                            "jsonrpc": "2.0", 
+                            "method": "plecs.set",
+                            "params": [jsonsimulation.model_name, 
+                                       "MaxStep",
+                               jsonsimulation.max_step],
+                        "id": jsonsimulation._get_id()
+                        }
+                    )
+    
+    error = response.json().get('error')
+    if error:
+        raise Exception("Initialization failed.")
+    
+
+    response = jsonsimulation.session.post(
+                        jsonsimulation.url,
+                        json = {
+                            "jsonrpc": "2.0", 
+                            "method": "plecs.set",
+                            "params": [jsonsimulation.model_name, 
+                                       "ZCStepSize",
+                               jsonsimulation.zc_step_size],
+                        "id": jsonsimulation._get_id()
+                        }
+                    )
+    
+    error = response.json().get('error')
+    if error:
+        raise Exception("Initialization failed.")
+    
+    
+    return response.json()
+    
+    
+    
 
 def set_model_fixed_initcommands(simulation: Simulation, init_commands: dict):
     init_commands_set = (
@@ -41,16 +100,79 @@ def set_model_fixed_initcommands(simulation: Simulation, init_commands: dict):
     )
     simulation.server.plecs.set(simulation.model_name, "InitializationCommands",
                                 init_commands_set)
-   
+
+def set_model_fixed_initcommands_json(jsonsimulation: JsonSimulation, init_commands: dict):
+    init_commands_set = (
+        f"Tinit = {init_commands["InitializationCommands"]["Tinit"]};\n"
+        f"Rcs = {init_commands["InitializationCommands"]["Rcs"]};\n"
+        f"Csa = {init_commands["InitializationCommands"]["Csa"]};\n"
+        f"Rsa = {init_commands["InitializationCommands"]['Rsa']};\n"
+        f"Vin = {init_commands["InitializationCommands"]['Vin']};\n"
+        f"RL = {init_commands["InitializationCommands"]['RL']};\n"
+        f"k = {init_commands["InitializationCommands"]['k']};\n"
+        f"Lt = {1.64e-6};\n"
+        f"Lr = {2.79e-6};\n"
+        f"M = {init_commands["InitializationCommands"]['k'] * math.sqrt(1.64e-6 * 2.79e-6)};\n"
+    )
+
+    response = jsonsimulation.session.post(
+                        jsonsimulation.url,
+                        json = {
+                            "jsonrpc": "2.0", 
+                            "method": "plecs.set",
+                            "params": [jsonsimulation.model_name, 
+                                       "InitializationCommands",
+                               init_commands_set],
+                        "id": jsonsimulation._get_id()
+                        }
+    )
+    if response.json().get('error'):
+        raise Exception("Initialization failed.")
+    return response.json()
     
 def set_model_declarations(simulation: Simulation, freq:float, duty:float):
     block_path = f"{simulation.model_name}/C-Script"
     simulation.server.plecs.set(block_path, "Declarations", 
                                 c_template.format(freq_val=freq, 
                                                   d_val=duty))
+def set_model_declarations_json(jsonsimulation: JsonSimulation, freq:float, duty:float):
+    block_path = f"{jsonsimulation.model_name}/C-Script"
+    response = jsonsimulation.session.post(
+                        jsonsimulation.url,
+                        json = {
+                            "jsonrpc": "2.0", 
+                            "method": "plecs.set",
+                            "params": [block_path, 
+                                       "Declarations",
+                               c_template.format(freq_val=freq, 
+                                                  d_val=duty)],
+                            "id": jsonsimulation._get_id()
+                        }
+    )
+    if response.json().get('error'):
+        raise Exception("Declarations failed. " + str(response.json()))
+    
+    return response.json()
 
 def run_batch_simulation(simulation: Simulation, params: list):
     return simulation.server.plecs.simulate(simulation.model_name, params)
 
+
+
 def run_single_simulation(simulation: Simulation, params: dict):
     return simulation.server.plecs.simulate(simulation.model_name)
+
+
+def run_single_simulation_json(jsonsimulation: JsonSimulation):
+    response = jsonsimulation.session.post(
+                        jsonsimulation.url,
+                        json = {
+                            "jsonrpc": "2.0", 
+                            "method": "plecs.simulate",
+                            "params": [jsonsimulation.model_name],
+                            "id": jsonsimulation._get_id()
+                        }
+    )
+    if response.json().get('error'):
+        raise Exception("Simulation failed. " + str(response.json()))
+    return response.json()
