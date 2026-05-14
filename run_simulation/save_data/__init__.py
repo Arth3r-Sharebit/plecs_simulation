@@ -1,1 +1,1 @@
-from .save_vector import save_data_and_plot
+from .save_vector import save_data_and_plot, save_data_and_plot_json

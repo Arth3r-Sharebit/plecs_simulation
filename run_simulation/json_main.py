@@ -1,9 +1,11 @@
 from model_obj.json_rpc_model import JsonSimulation
 from connect_server.connect_server import connect_server_json
+from save_data import save_data_and_plot_json
 import sys
 import math
 import time
 import datetime
+import json
 
 FIXED_INIT_COMMANDS = {
     "InitializationCommands":
@@ -54,6 +56,16 @@ def json_main():
         _t = time.time()
         res_single = jsonsimulation.run_single_simulation()
         print(f"[计时] simulation costs: {time.time()-_t:.1f}s")
+
+        save_data_and_plot_json(res_single, jsonsimulation.freq, jsonsimulation.duty,
+                           FIXED_INIT_COMMANDS["InitializationCommands"]["Rcs"],
+                           SINGLE_PARAMS["InitializationCommands"]["Rsa"],
+                           FIXED_INIT_COMMANDS["InitializationCommands"]["Csa"],
+                           SINGLE_PARAMS["InitializationCommands"]["Vin"],
+                           SINGLE_PARAMS["InitializationCommands"]["RL"],
+                           SINGLE_PARAMS["InitializationCommands"]["k"],
+                           'Correct'
+        )
 
         
 

@@ -12,6 +12,7 @@ import sys
 from datetime import datetime
 import math
 from multi_tasks_main import multi_tasks_main
+from multi_tasks_json_main import multi_tasks_json_main
 from json_main import json_main
 
 FIXED_INIT_COMMANDS = {

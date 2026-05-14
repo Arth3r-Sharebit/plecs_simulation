@@ -1,7 +1,6 @@
-from save_data import save_data_and_plot_json
 from save_data import save_data_and_plot
-from connect_server import connect_server
-from model_obj import Simulation
+from connect_server import connect_server_json
+from model_obj import JsonSimulation
 import time
 from datetime import datetime
 import numpy as np
@@ -10,17 +9,17 @@ import sys
 import math
 from tqdm import tqdm
 
-def multi_tasks_main():
-    server, _ = connect_server(1080)
-    simulation = Simulation(server, 
-                            model_name = "test.v1.1", 
-                            # 0.02
-                            time_span  = "2e-8", 
-                            max_step   = "3e-7", 
-                            zc_step_size = "1e-3",
-                            freq       = 6.78e6,
-                            duty       = 0.5)
-    
+def multi_tasks_json_main():
+    session, url = connect_server_json(1080)
+    jsonsimulation = JsonSimulation(session, 
+                                    url          = url,
+                                    model_name   = "test.v1.1", 
+                                    time_span    = "0.02", 
+                                    max_step     = "1e-8", 
+                                    zc_step_size = "1e-5", 
+                                    freq         = 6.78e6, 
+                                    duty         = 0.5
+                                    )
 
     bounds = {
         'Freq': (5.78e6, 7.78e6),
@@ -61,16 +60,16 @@ def multi_tasks_main():
                 "M": sample[5]*math.sqrt(1.64e-6*2.79e-6)
             }
         }
-        simulation.set_model_fixed_initcommands(dynamic_params)
-        simulation.set_model_declarations(sample[0], sample[1])
+    
+        jsonsimulation.set_model_fixed_initcommands(dynamic_params)
+        jsonsimulation.set_model_declarations(sample[0], sample[1])
         try:
             _t = time.time()
             print(f"  [计时] simulation starts: {datetime.now()}s")
-            sim_results = simulation.run_single_simulation(dynamic_params)
+            sim_results = jsonsimulation.run_single_simulation()
             print(f"  [计时] simulation costs: {time.time()-_t:.1f}s")
 
-
-            save_data_and_plot_json(sim_results, sample[0], sample[1],
+            save_data_and_plot(sim_results, sample[0], sample[1],
                            dynamic_params["InitializationCommands"]["Rcs"],
                            dynamic_params["InitializationCommands"]["Rsa"],
                            dynamic_params["InitializationCommands"]["Csa"],
