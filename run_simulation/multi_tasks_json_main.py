@@ -1,4 +1,4 @@
-from save_data import save_data_and_plot
+from save_data import save_data_and_plot_json
 from connect_server import connect_server_json
 from model_obj import JsonSimulation
 import time
@@ -28,6 +28,7 @@ def multi_tasks_json_main():
         'Vin' : (50.0, 400.0),
         'RL'  : (50.0, 200.0),
         'k'   : (0.1, 0.6),
+        'Rcs' : (0.1, 0.5)
     }
     dim = len(bounds)
     ranges = np.array(list(bounds.values()))   # shape (6, 2)
@@ -50,7 +51,7 @@ def multi_tasks_json_main():
             "InitializationCommands": {
                 "Tinit": 25.1,
                 "Csa" : 33.5,
-                "Rcs" : 0.2,
+                "Rcs" : sample[6],
                 "Rsa": sample[2],
                 "Vin": sample[3],
                 "RL" : sample[4],
@@ -69,7 +70,7 @@ def multi_tasks_json_main():
             sim_results = jsonsimulation.run_single_simulation()
             print(f"  [计时] simulation costs: {time.time()-_t:.1f}s")
 
-            save_data_and_plot(sim_results, sample[0], sample[1],
+            save_data_and_plot_json(sim_results, sample[0], sample[1],
                            dynamic_params["InitializationCommands"]["Rcs"],
                            dynamic_params["InitializationCommands"]["Rsa"],
                            dynamic_params["InitializationCommands"]["Csa"],

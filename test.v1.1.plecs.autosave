@@ -28,9 +28,10 @@ Plecs {
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
   FixedPointDatatypeOverride "1"
-  InitializationCommands "Tinit = 25.1;\nRcs = 0.2;\nCsa = 33.5;\nRsa = 0.5;\n"
-"Vin = 100;\nRL = 115;\nk = 0.6;\nLt = 1.64e-06;\nLr = 2.79e-06;\nM = 1.283439"
-"1298382639e-06;\n"
+  InitializationCommands "Tinit = 25.1;\nRcs = 0.2823544767734584;\nCsa = 33.5"
+";\nRsa = 4.275938807801029;\nVin = 332.851103457593;\nRL = 79.30492625836355;"
+"\nk = 0.3833903371997983;\nLt = 1.64e-06;\nLr = 2.79e-06;\nM = 8.200969346068"
+"462e-07;\n"
   InitialState  "1"
   SystemState   ""
   JacobianComputation "2"
@@ -2728,9 +2729,10 @@ Plecs {
       Parameter {
         Variable      "Declarations"
         Value         base64 "CiNpbmNsdWRlIDxtYXRoLmg+CnN0YXRpYyBkb3VibGUgZnJl"
-"cSA9IDY3ODAwMDAuMDsgIC8qIOW8gOWFs+mikeeOh++8jOeUqOS6juiuoeeul+WRqOacnyBUID0gM"
-"S9mcmVxICovCnN0YXRpYyBkb3VibGUgZHV0eSA9IDAuNTsgICAgIC8qIOWNoOepuuavlO+8jOeUqO"
-"S6juiuoeeul+WvvOmAmuaXtumXtCB0MSAqLwpkb3VibGUgVCwgdDEsIHQyOwo="
+"cSA9IDcxOTIxMzkuMzU2OTQ3MjM7ICAvKiDlvIDlhbPpopHnjofvvIznlKjkuo7orqHnrpflkajmn"
+"J8gVCA9IDEvZnJlcSAqLwpzdGF0aWMgZG91YmxlIGR1dHkgPSAwLjU3Mzc0Mzc3MjczNDY0ODg7IC"
+"AgICAvKiDljaDnqbrmr5TvvIznlKjkuo7orqHnrpflr7zpgJrml7bpl7QgdDEgKi8KZG91YmxlIFQ"
+"sIHQxLCB0MjsK"
         Show          off
       }
       Parameter {
