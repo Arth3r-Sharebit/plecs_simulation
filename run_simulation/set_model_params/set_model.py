@@ -170,7 +170,7 @@ def run_single_simulation(simulation: Simulation, params: dict):
 
 
 def run_single_simulation_json(jsonsimulation: JsonSimulation):
-    if jsonsimulation.enable_output:
+    if jsonsimulation.disable_output:
         with jsonsimulation.session.post(
                         jsonsimulation.url,
                         json = {

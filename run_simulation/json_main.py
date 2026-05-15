@@ -45,7 +45,8 @@ def json_main():
                                     max_step     = "1e-8", 
                                     zc_step_size = "1e-5", 
                                     freq         = 6.78e6, 
-                                    duty         = 0.5
+                                    duty         = 0.5,
+                                    disable_output = True
                                     )
     
     try:
@@ -54,18 +55,21 @@ def json_main():
         res_dec = jsonsimulation.set_model_declarations(jsonsimulation.freq, jsonsimulation.duty)
         print("time: " + str(datetime.datetime.now()))
         _t = time.time()
-        jsonsimulation.run_single_simulation()
+        res_single = jsonsimulation.run_single_simulation()
         print(f"[计时] simulation costs: {time.time()-_t:.1f}s")
 
-        #save_data_and_plot_json(res_single, jsonsimulation.freq, jsonsimulation.duty,
-        #                   FIXED_INIT_COMMANDS["InitializationCommands"]["Rcs"],
-        #                   SINGLE_PARAMS["InitializationCommands"]["Rsa"],
-        #                   FIXED_INIT_COMMANDS["InitializationCommands"]["Csa"],
-        #                   SINGLE_PARAMS["InitializationCommands"]["Vin"],
-        #                   SINGLE_PARAMS["InitializationCommands"]["RL"],
-        #                   SINGLE_PARAMS["InitializationCommands"]["k"],
-        #                   'Correct'
-        #)
+        if jsonsimulation.disable_output == False:
+            save_data_and_plot_json(res_single, jsonsimulation.freq, jsonsimulation.duty,
+                               FIXED_INIT_COMMANDS["InitializationCommands"]["Rcs"],
+                               SINGLE_PARAMS["InitializationCommands"]["Rsa"],
+                                FIXED_INIT_COMMANDS["InitializationCommands"]["Csa"],
+                               SINGLE_PARAMS["InitializationCommands"]["Vin"],
+                               SINGLE_PARAMS["InitializationCommands"]["RL"],
+                               SINGLE_PARAMS["InitializationCommands"]["k"],
+                               'Correct'
+            )
+
+        
 
         
 

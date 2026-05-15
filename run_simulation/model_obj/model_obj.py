@@ -20,7 +20,6 @@ class Simulation:
         self.zc_step_size = zc_step_size
         self.freq = freq
         self.duty = duty
-        self.enable_output = True
         set_model_init(self)
     
 

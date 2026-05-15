@@ -17,7 +17,8 @@ class JsonSimulation(Simulation):
                  max_step: str,
                  zc_step_size: str,
                  freq: float,
-                 duty: float):
+                 duty: float,
+                 disable_output: bool):
         self.model_name = model_name
         self.url = url
         self.time_span = time_span
@@ -27,7 +28,7 @@ class JsonSimulation(Simulation):
         self.freq = freq
         self.duty = duty    
         self.id = 0
-        
+        self.disable_output = disable_output
         
     def set_model_initlization(self):
         return set_model_init_json(self)

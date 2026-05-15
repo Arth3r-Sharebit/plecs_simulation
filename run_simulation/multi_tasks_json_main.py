@@ -18,15 +18,18 @@ def multi_tasks_json_main():
                                     max_step     = "1e-8", 
                                     zc_step_size = "1e-5", 
                                     freq         = 6.78e6, 
-                                    duty         = 0.5
+                                    duty         = 0.5,
+                                    disable_output = True
                                     )
     jsonsimulation.set_model_initlization()
     
     
-
+    
+    # Freq(10) Duty(7), Vin(5) k(5)(from 0.2) RL(4), Rsa(2), Rcs(2)
     bounds = {
+        #         710    540
         'Freq': (5.78e6, 7.78e6),
-        'Duty': (0.2, 0.6),
+        'Duty': (0.2, 0.5),
         'Rsa' : (0.2, 6.0),
         'Vin' : (50.0, 400.0),
         'RL'  : (50.0, 200.0),
@@ -73,7 +76,9 @@ def multi_tasks_json_main():
             sim_results = jsonsimulation.run_single_simulation()
             print(f"  [计时] simulation costs: {time.time()-_t:.1f}s")
 
-            save_data_and_plot_json(sim_results, sample[0], sample[1],
+
+            if jsonsimulation.disable_output == False:
+                save_data_and_plot_json(sim_results, sample[0], sample[1],
                            dynamic_params["InitializationCommands"]["Rcs"],
                            dynamic_params["InitializationCommands"]["Rsa"],
                            dynamic_params["InitializationCommands"]["Csa"],
