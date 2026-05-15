@@ -20,6 +20,7 @@ def multi_tasks_json_main():
                                     freq         = 6.78e6, 
                                     duty         = 0.5
                                     )
+    jsonsimulation.set_model_initlization()
 
     bounds = {
         'Freq': (5.78e6, 7.78e6),
@@ -61,7 +62,7 @@ def multi_tasks_json_main():
                 "M": sample[5]*math.sqrt(1.64e-6*2.79e-6)
             }
         }
-    
+        
         jsonsimulation.set_model_fixed_initcommands(dynamic_params)
         jsonsimulation.set_model_declarations(sample[0], sample[1])
         try:
