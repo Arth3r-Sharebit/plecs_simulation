@@ -3,7 +3,7 @@ Plecs {
   Version       "5.0"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
-  TimeSpan      "0.02"
+  TimeSpan      "0.00002"
   Timeout       ""
   Solver        "radau"
   MaxStep       "1e-8"
@@ -28,9 +28,10 @@ Plecs {
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
   FixedPointDatatypeOverride "1"
-  InitializationCommands "Tinit = 25.1;\nRcs = 0.2;\nCsa = 33.5;\nRsa = 0.5;\n"
-"Vin = 100;\nRL = 115;\nk = 0.6;\nLt = 1.64e-06;\nLr = 2.79e-06;\nM = 1.283439"
-"1298382639e-06;\n"
+  InitializationCommands "Tinit = 25.1;\nRcs = 0.3923346436078844;\nCsa = 33.5"
+";\nRsa = 2.361204557139448;\nVin = 222.85290863916094;\nRL = 123.747639503988"
+"11;\nk = 0.5039071202028191;\nLt = 1.64e-06;\nLr = 2.79e-06;\nM = 1.077890193"
+"120686e-06;\n"
   InitialState  "1"
   SystemState   ""
   JacobianComputation "2"
@@ -2728,9 +2729,10 @@ Plecs {
       Parameter {
         Variable      "Declarations"
         Value         base64 "CiNpbmNsdWRlIDxtYXRoLmg+CnN0YXRpYyBkb3VibGUgZnJl"
-"cSA9IDY3ODAwMDAuMDsgIC8qIOW8gOWFs+mikeeOh++8jOeUqOS6juiuoeeul+WRqOacnyBUID0gM"
-"S9mcmVxICovCnN0YXRpYyBkb3VibGUgZHV0eSA9IDAuNTsgICAgIC8qIOWNoOepuuavlO+8jOeUqO"
-"S6juiuoeeul+WvvOmAmuaXtumXtCB0MSAqLwpkb3VibGUgVCwgdDEsIHQyOwo="
+"cSA9IDczOTgxMDUuMjg2NDA5MTU3OyAgLyog5byA5YWz6aKR546H77yM55So5LqO6K6h566X5ZGo5"
+"pyfIFQgPSAxL2ZyZXEgKi8Kc3RhdGljIGRvdWJsZSBkdXR5ID0gMC4yNjM3NDAxNTY5ODkzMjkwNz"
+"sgICAgIC8qIOWNoOepuuavlO+8jOeUqOS6juiuoeeul+WvvOmAmuaXtumXtCB0MSAqLwpkb3VibGU"
+"gVCwgdDEsIHQyOwo="
         Show          off
       }
       Parameter {

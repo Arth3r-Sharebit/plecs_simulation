@@ -4,13 +4,15 @@ from set_model_params.set_model import run_batch_simulation
 from set_model_params.set_model import set_model_declarations
 from set_model_params.set_model import set_model_fixed_initcommands
 from set_model_params.set_model import run_single_simulation
+
 class Simulation:
     def __init__(self, server: xmlrpc.client.ServerProxy, model_name: str,
                  time_span: str,
                  max_step: str,
                  zc_step_size: str,
                  freq: float,
-                 duty: float):
+                 duty: float
+                 ):
         self.server = server
         self.model_name = model_name
         self.time_span = time_span
@@ -18,6 +20,7 @@ class Simulation:
         self.zc_step_size = zc_step_size
         self.freq = freq
         self.duty = duty
+        self.enable_output = True
         set_model_init(self)
     
 

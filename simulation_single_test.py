@@ -6,8 +6,9 @@ import os
 import itertools
 from datetime import datetime
 import matplotlib.pyplot as plt
+import sys
 
-MODEL_NAME = "test1"
+MODEL_NAME = "test.v1.1"
 BLOCK_PATH = f"{MODEL_NAME}/C-Script"
 
 duty = 29
@@ -84,6 +85,10 @@ if __name__ == '__main__':
     print(datetime.now())
     print(server.system.listMethods())
     server.plecs.set(model_name, "InitializationCommands", "Tinit=25")
+
+    # 查询模型当前的仿真属性名
+    print(server.plecs.get(model_name, ""))
+    sys.exit(0)
     sim_results = server.plecs.simulate(model_name, sim_list)
 
     print(datetime.now())

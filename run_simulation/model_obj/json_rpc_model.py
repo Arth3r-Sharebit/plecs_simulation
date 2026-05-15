@@ -1,5 +1,9 @@
 from model_obj import Simulation
-from set_model_params.set_model import set_model_init_json, set_model_fixed_initcommands_json, set_model_declarations_json, run_single_simulation_json
+from set_model_params.set_model import set_model_init_json
+from set_model_params.set_model import set_model_fixed_initcommands_json
+from set_model_params.set_model import set_model_declarations_json
+from set_model_params.set_model import run_single_simulation_json
+from set_model_params.set_model import set_model_decimations
 import json
 import requests
 from typing import override
@@ -27,6 +31,10 @@ class JsonSimulation(Simulation):
         
     def set_model_initlization(self):
         return set_model_init_json(self)
+    
+
+    def set_model_decimation(self, n:int):
+        return set_model_decimations(self, n)
 
 
     def _get_id(self):

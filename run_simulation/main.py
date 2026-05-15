@@ -80,4 +80,4 @@ def main():
 
 
 if __name__ == "__main__":
-    multi_tasks_json_main()
+    json_main()

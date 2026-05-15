@@ -21,6 +21,8 @@ def multi_tasks_json_main():
                                     duty         = 0.5
                                     )
     jsonsimulation.set_model_initlization()
+    
+    
 
     bounds = {
         'Freq': (5.78e6, 7.78e6),

@@ -83,6 +83,8 @@ def set_model_init_json(jsonsimulation: JsonSimulation):
     return response.json()
     
     
+def set_model_decimations(jsonsimulation: JsonSimulation, n:int):
+    pass
     
 
 def set_model_fixed_initcommands(simulation: Simulation, init_commands: dict):
@@ -115,7 +117,7 @@ def set_model_fixed_initcommands_json(jsonsimulation: JsonSimulation, init_comma
         f"M = {init_commands["InitializationCommands"]['k'] * math.sqrt(1.64e-6 * 2.79e-6)};\n"
     )
 
-    response = jsonsimulation.session.post(
+    with jsonsimulation.session.post(
                         jsonsimulation.url,
                         json = {
                             "jsonrpc": "2.0", 
@@ -125,10 +127,12 @@ def set_model_fixed_initcommands_json(jsonsimulation: JsonSimulation, init_comma
                                init_commands_set],
                         "id": jsonsimulation._get_id()
                         }
-    )
-    if response.json().get('error'):
-        raise Exception("Initialization failed.")
-    return response.json()
+    ) as response:
+        if response.json().get('error'):
+            raise Exception("Initialization failed.")
+        return response.json()
+    
+    return None
     
 def set_model_declarations(simulation: Simulation, freq:float, duty:float):
     block_path = f"{simulation.model_name}/C-Script"
@@ -137,7 +141,7 @@ def set_model_declarations(simulation: Simulation, freq:float, duty:float):
                                                   d_val=duty))
 def set_model_declarations_json(jsonsimulation: JsonSimulation, freq:float, duty:float):
     block_path = f"{jsonsimulation.model_name}/C-Script"
-    response = jsonsimulation.session.post(
+    with jsonsimulation.session.post(
                         jsonsimulation.url,
                         json = {
                             "jsonrpc": "2.0", 
@@ -148,11 +152,13 @@ def set_model_declarations_json(jsonsimulation: JsonSimulation, freq:float, duty
                                                   d_val=duty)],
                             "id": jsonsimulation._get_id()
                         }
-    )
-    if response.json().get('error'):
-        raise Exception("Declarations failed. " + str(response.json()))
+    ) as response:
+        if response.json().get('error'):
+            raise Exception("Declarations failed. " + str(response.json()))
     
-    return response.json()
+        return response.json()
+    
+    return None
 
 def run_batch_simulation(simulation: Simulation, params: list):
     return simulation.server.plecs.simulate(simulation.model_name, params)
@@ -164,7 +170,28 @@ def run_single_simulation(simulation: Simulation, params: dict):
 
 
 def run_single_simulation_json(jsonsimulation: JsonSimulation):
-    response = jsonsimulation.session.post(
+    if jsonsimulation.enable_output:
+        with jsonsimulation.session.post(
+                        jsonsimulation.url,
+                        json = {
+                            "jsonrpc": "2.0", 
+                            "method": "plecs.simulate",
+                            "params": [jsonsimulation.model_name],
+                            "id": jsonsimulation._get_id()
+                        },
+                        stream = True
+        ) as response:
+            if response.status_code == 200:
+                print("Simulation running finished.")
+            else:
+                raise Exception("Simulation failed. ")
+            
+        return None
+        
+
+    
+    else:
+        response = jsonsimulation.session.post(
                         jsonsimulation.url,
                         json = {
                             "jsonrpc": "2.0", 
@@ -172,7 +199,14 @@ def run_single_simulation_json(jsonsimulation: JsonSimulation):
                             "params": [jsonsimulation.model_name],
                             "id": jsonsimulation._get_id()
                         }
-    )
-    if response.json().get('error'):
-        raise Exception("Simulation failed. " + str(response.json()))
-    return response.json()
+        )
+        if response.json().get('error'):
+            raise Exception("Simulation failed. " + str(response.json()))
+        
+        return response.json()
+
+    #print(response.json()['result']['Time'].__len__())
+    #if response.json().get('error'):
+    #    raise Exception("Simulation failed. " + str(response.json()))
+    #return response.json()
+    

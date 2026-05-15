@@ -54,18 +54,18 @@ def json_main():
         res_dec = jsonsimulation.set_model_declarations(jsonsimulation.freq, jsonsimulation.duty)
         print("time: " + str(datetime.datetime.now()))
         _t = time.time()
-        res_single = jsonsimulation.run_single_simulation()
+        jsonsimulation.run_single_simulation()
         print(f"[计时] simulation costs: {time.time()-_t:.1f}s")
 
-        save_data_and_plot_json(res_single, jsonsimulation.freq, jsonsimulation.duty,
-                           FIXED_INIT_COMMANDS["InitializationCommands"]["Rcs"],
-                           SINGLE_PARAMS["InitializationCommands"]["Rsa"],
-                           FIXED_INIT_COMMANDS["InitializationCommands"]["Csa"],
-                           SINGLE_PARAMS["InitializationCommands"]["Vin"],
-                           SINGLE_PARAMS["InitializationCommands"]["RL"],
-                           SINGLE_PARAMS["InitializationCommands"]["k"],
-                           'Correct'
-        )
+        #save_data_and_plot_json(res_single, jsonsimulation.freq, jsonsimulation.duty,
+        #                   FIXED_INIT_COMMANDS["InitializationCommands"]["Rcs"],
+        #                   SINGLE_PARAMS["InitializationCommands"]["Rsa"],
+        #                   FIXED_INIT_COMMANDS["InitializationCommands"]["Csa"],
+        #                   SINGLE_PARAMS["InitializationCommands"]["Vin"],
+        #                   SINGLE_PARAMS["InitializationCommands"]["RL"],
+        #                   SINGLE_PARAMS["InitializationCommands"]["k"],
+        #                   'Correct'
+        #)
 
         
 
