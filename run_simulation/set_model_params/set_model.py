@@ -224,6 +224,7 @@ def set_model_filepath_json(jsonsimulation: JsonSimulation, filepath: str):
             "id": jsonsimulation._get_id(),
         },
     ) as response:
+        print(response.json())
         if response.json().get("error"):
             raise Exception("Filepath failed. " + str(response.json()))
         return response.json()

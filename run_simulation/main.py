@@ -82,4 +82,5 @@ def main():
 
 
 if __name__ == "__main__":
-    json_main()
+    multi_full_tasks_main()
+    multi_full_tasks_main()

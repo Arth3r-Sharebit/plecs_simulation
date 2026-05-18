@@ -71,7 +71,6 @@ def multi_full_tasks_main():
                     pathlib.Path.cwd()
                     / "Output"
                     / "Data"
-                    / "test"
                     / str(
                         "freq="
                         + str(freq)
