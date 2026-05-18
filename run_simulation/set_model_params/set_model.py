@@ -4,6 +4,9 @@ from typing import TYPE_CHECKING
 import math
 import json
 import requests
+from rich.console import Console
+
+console = Console()    
 
 if TYPE_CHECKING:
     from model_obj import Simulation
@@ -38,7 +41,8 @@ def set_model_init_json(jsonsimulation: JsonSimulation):
 
     error = response.json().get("error")
     if error:
-        raise Exception("Initialization failed.")
+        console.print(response.json(), style="bold red")
+        raise Exception("Model Initialization failed.")
 
     response = jsonsimulation.session.post(
         jsonsimulation.url,
@@ -52,6 +56,7 @@ def set_model_init_json(jsonsimulation: JsonSimulation):
 
     error = response.json().get("error")
     if error:
+        console.print(response.json(), style="bold red")
         raise Exception("Initialization failed.")
 
     response = jsonsimulation.session.post(
@@ -70,6 +75,7 @@ def set_model_init_json(jsonsimulation: JsonSimulation):
 
     error = response.json().get("error")
     if error:
+        console.print(response.json(), style="bold red")
         raise Exception("Initialization failed.")
 
     return response.json()
@@ -127,7 +133,8 @@ def set_model_fixed_initcommands_json(
         },
     ) as response:
         if response.json().get("error"):
-            raise Exception("Initialization failed.")
+            console.print(response.json(), style="bold red")
+            raise Exception("Initialization failed." + str(response.json()))
         return response.json()
 
     return None
@@ -158,6 +165,7 @@ def set_model_declarations_json(
         },
     ) as response:
         if response.json().get("error"):
+            console.print(response.json(), style="bold red")
             raise Exception("Declarations failed. " + str(response.json()))
 
         return response.json()
@@ -186,10 +194,19 @@ def run_single_simulation_json(jsonsimulation: JsonSimulation):
             stream=True,
         ) as response:
             if response.status_code == 200:
-                print("Simulation running finished.")
+                pass
+                # print("Simulation running finished.")
             else:
                 raise Exception("Simulation failed. ")
 
+            peek = response.raw.read(200).decode("utf-8")
+            console.print(peek, style="yellow")
+            # rich.inspect(response.json())
+
+            if '"error"' in peek:
+                raise Exception("Simulation failed: Server returned an error.")
+            else:
+                console.print("Simluation running finised", style="green")
         return None
 
     else:
@@ -224,7 +241,6 @@ def set_model_filepath_json(jsonsimulation: JsonSimulation, filepath: str):
             "id": jsonsimulation._get_id(),
         },
     ) as response:
-        print(response.json())
         if response.json().get("error"):
             raise Exception("Filepath failed. " + str(response.json()))
         return response.json()

@@ -8,6 +8,9 @@ from scipy.stats.qmc import LatinHypercube
 import sys
 import math
 from tqdm import tqdm
+import pathlib
+
+PATH = pathlib.Path.cwd() / "Output" / "Data"
 
 
 def multi_tasks_json_main():
@@ -69,6 +72,29 @@ def multi_tasks_json_main():
 
         jsonsimulation.set_model_fixed_initcommands(dynamic_params)
         jsonsimulation.set_model_declarations(sample[0], sample[1])
+
+        if jsonsimulation.disable_output == True:
+            jsonsimulation.set_model_filepath(
+                str(
+                    PATH
+                    / str(
+                        "freq="
+                        + f"{sample[0] / 1e6:.3f}"
+                        + "_duty="
+                        + str(sample[1])
+                        + "_vin="
+                        + str(sample[3])
+                        + "_k="
+                        + str(sample[5])
+                        + "_rl="
+                        + str(sample[4])
+                        + "_rsa="
+                        + str(sample[2])
+                        + "_rcs="
+                        + str(sample[6])
+                    )
+                )
+            )
         try:
             _t = time.time()
             print(f"  [计时] simulation starts: {datetime.now()}s")

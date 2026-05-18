@@ -7,4 +7,9 @@ sudo docker run --rm -it \
   -e VNC_PW=password \
   ubuntu:v1
 
+
+
+用户名: kasm_user
+密码 : password
+
   

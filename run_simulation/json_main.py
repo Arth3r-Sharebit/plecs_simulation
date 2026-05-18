@@ -6,6 +6,9 @@ import math
 import time
 import datetime
 import json
+import pathlib
+
+PATH = pathlib.Path.cwd() / "Output" / "Data"
 
 FIXED_INIT_COMMANDS = {
     "InitializationCommands": {
@@ -57,6 +60,9 @@ def json_main():
         res_dec = jsonsimulation.set_model_declarations(
             jsonsimulation.freq, jsonsimulation.duty
         )
+
+        if jsonsimulation.disable_output == True:
+            jsonsimulation.set_model_filepath(str(PATH / "Single_Test"))
         print("time: " + str(datetime.datetime.now()))
         _t = time.time()
         res_single = jsonsimulation.run_single_simulation()

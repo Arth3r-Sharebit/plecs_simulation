@@ -8,15 +8,23 @@ import math
 import time
 import datetime
 import pathlib
+import os
+import rich
 
 
+PATH = pathlib.Path.cwd() / "Output" / "Data"
+
+console = rich.console.Console()
 def multi_full_tasks_main():
+    
+
+
     sess, url = connect_server_json(port=1080)
     jsonsimulation = JsonSimulation(
         sess,
         url=url,
         model_name="test.v1.1",
-        time_span="0.02",
+        time_span="0.00002",
         max_step="1e-8",
         zc_step_size="1e-5",
         freq=6.78e6,
@@ -26,7 +34,7 @@ def multi_full_tasks_main():
     try:
         jsonsimulation.set_model_initlization()
     except Exception as e:
-        print(e)
+        console.print(e, style="bold red")
         sys.exit()
 
     duty_list = np.linspace(0.2, 0.5, 7)
@@ -63,17 +71,19 @@ def multi_full_tasks_main():
             }
         }
 
+        if not PATH.exists():
+            console.print("[错误] 找不到输出目录, 请检查是否正确配置了输出目录", "bold red")
+            raise FileNotFoundError("Output/Data does not exist")
+
         try:
             jsonsimulation.set_model_fixed_initcommands(dynamic_params)
             jsonsimulation.set_model_declarations(freq=freq, duty=duty)
             jsonsimulation.set_model_filepath(
                 str(
-                    pathlib.Path.cwd()
-                    / "Output"
-                    / "Data"
+                    PATH
                     / str(
                         "freq="
-                        + str(freq)
+                        + f"{freq / 1e6:.3f}"
                         + "_duty="
                         + str(duty)
                         + "_vin="
@@ -91,9 +101,9 @@ def multi_full_tasks_main():
             )
 
             _t = time.time()
-            print(f"  [计时] simulation starts: {datetime.datetime.now()}s")
+            console.print(f"  [计时] simulation starts: {datetime.datetime.now()}s", style="blue")
             jsonsimulation.run_single_simulation()
-            print(f"  [计时] simulation costs: {time.time() - _t:.1f}s")
+            console.print(f"  [计时] simulation costs: {time.time() - _t:.1f}s", style="blue")
 
         except Exception as e:
-            print(e)
+            console.print(e, style="bold red")
