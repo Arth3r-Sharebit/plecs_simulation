@@ -58,7 +58,7 @@ def connect_server(port: int) -> tuple[xmlrpc.client.ServerProxy, str, str]:
     return server, model_name, block_path
 
 def config_model(server: xmlrpc.client.ServerProxy, time_span: str, 
-                 max_step: str, zc_step_size: str)->xmlrpc.client.ServerProxy:
+                 max_step: str, zc_step_size: str):
     server.plecs.set(model_name, "TimeSpan", time_span)
     server.plecs.set(model_name, "MaxStep",  max_step)
     server.plecs.set(model_name, "ZCStepSize",  zc_step_size)

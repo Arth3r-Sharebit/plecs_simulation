@@ -1,6 +1,8 @@
 import xmlrpc.client
 import json
 import requests
+
+
 def connect_server(port: int) -> tuple[xmlrpc.client.ServerProxy, str]:
     """
     Connects to the server and returns the server object and the server address.
@@ -8,7 +10,6 @@ def connect_server(port: int) -> tuple[xmlrpc.client.ServerProxy, str]:
     server = xmlrpc.client.ServerProxy(f"http://localhost:{port}")
     server_address = f"http://localhost:{port}"
     return server, server_address
-
 
 
 def connect_server_json(port: int) -> tuple[requests.Session, str]:
