@@ -15,7 +15,7 @@ import traceback
 
 
 console = rich.console.Console()
-PATH = pathlib.Path("home/kasm-user/data")
+PATH = pathlib.Path("/home/kasm-user/data")
 
 def multi_random_json_main():
     sess, url = connect_server_json(port=1080)
