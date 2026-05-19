@@ -6,7 +6,7 @@ import json
 import requests
 from rich.console import Console
 
-console = Console()    
+console = Console()
 
 if TYPE_CHECKING:
     from model_obj import Simulation
@@ -220,8 +220,10 @@ def run_single_simulation_json(jsonsimulation: JsonSimulation):
             },
         )
         if response.json().get("error"):
-            raise Exception("Simulation failed. " + str(response.json()))
-
+            console.print(response.json(), style="bold red")
+            raise Exception("Simulation failed. ")
+        else:
+            console.print("Simluation running finised", style="green")
         return response.json()
 
     # print(response.json()['result']['Time'].__len__())

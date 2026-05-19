@@ -3,7 +3,7 @@ Plecs {
   Version       "5.0"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
-  TimeSpan      "0.00002"
+  TimeSpan      "0.0002"
   Timeout       ""
   Solver        "radau"
   MaxStep       "1e-8"
@@ -11,7 +11,7 @@ Plecs {
   FixedStep     "1e-3"
   Refine        "1"
   ZCStepSize    "1e-5"
-  RelTol        "1e-3"
+  RelTol        "1e-6"
   AbsTol        "-1"
   TurnOnThreshold " 1e-3"
   NonIdealSwitchResistance "1"
@@ -19,19 +19,19 @@ Plecs {
   UseSingleCommonBaseRate "2"
   LossVariableLimitExceededMsg "3"
   NegativeSwitchLossMsg "3"
-  DivisionByZeroMsg "1"
+  DivisionByZeroMsg "3"
   DatatypeOverflowMsg "3"
   DatatypeInheritanceConflictMsg "2"
   ContSampleTimeConflictMsg "2"
   StiffnessDetectionMsg "2"
-  MaxConsecutiveZCs "0"
+  MaxConsecutiveZCs "500"
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
   FixedPointDatatypeOverride "1"
-  InitializationCommands "Tinit = 25.1;\nRcs = 0.3923346436078844;\nCsa = 33.5"
-";\nRsa = 2.361204557139448;\nVin = 222.85290863916094;\nRL = 123.747639503988"
-"11;\nk = 0.5039071202028191;\nLt = 1.64e-06;\nLr = 2.79e-06;\nM = 1.077890193"
-"120686e-06;\n"
+  InitializationCommands "Tinit = 25.1;\nRcs = 0.21181865209135986;\nCsa = 33."
+"5;\nRsa = 2.39752648262981;\nVin = 89.41377487794257;\nRL = 183.9459385821016"
+"3;\nk = 0.2857935510491204;\nLt = 1.64e-06;\nLr = 2.79e-06;\nM = 6.1133104411"
+"97843e-07;\n"
   InitialState  "1"
   SystemState   ""
   JacobianComputation "2"
@@ -106,7 +106,7 @@ Plecs {
   Schematic {
     Location      [48, 53; 1420, 853]
     ZoomFactor    0.873834
-    SliderPosition [0, 88]
+    SliderPosition [0, 0]
     ShowBrowser   off
     BrowserWidth  158
     Component {
@@ -453,11 +453,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [0, 24; 1707, 1017]
+      Location      [46, 53; 1440, 900]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADsPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAC8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGEA////+wAAAAwAVAByAGEAYwBlAHMAAAAANAAAA7AAAABhAP///wAAAAMAAAarAAAAjfw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQCAAAC+QAAAbYAAADzAAAAfAAABqsAAAPCAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAANAAAA7AAAABmAP///wAAAAMAAAarAAAAjfw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQCAAAC+QAAAbYAAADzAAAAfAAABXIAAAMzAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -2729,8 +2729,8 @@ Plecs {
       Parameter {
         Variable      "Declarations"
         Value         base64 "CiNpbmNsdWRlIDxtYXRoLmg+CnN0YXRpYyBkb3VibGUgZnJl"
-"cSA9IDczOTgxMDUuMjg2NDA5MTU3OyAgLyog5byA5YWz6aKR546H77yM55So5LqO6K6h566X5ZGo5"
-"pyfIFQgPSAxL2ZyZXEgKi8Kc3RhdGljIGRvdWJsZSBkdXR5ID0gMC4yNjM3NDAxNTY5ODkzMjkwNz"
+"cSA9IDc1NzI4NzQuNjcxNjA0NTM0OyAgLyog5byA5YWz6aKR546H77yM55So5LqO6K6h566X5ZGo5"
+"pyfIFQgPSAxL2ZyZXEgKi8Kc3RhdGljIGRvdWJsZSBkdXR5ID0gMC4zOTc3MTE3NTE4MDgzMDIyNj"
 "sgICAgIC8qIOWNoOepuuavlO+8jOeUqOS6juiuoeeul+WvvOmAmuaXtumXtCB0MSAqLwpkb3VibGU"
 "gVCwgdDEsIHQyOwo="
         Show          off
@@ -3671,11 +3671,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [0, 24; 1707, 1035]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADUfwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAC8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwEAAAA0AA"
-"ADUQAAAGEA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABhAP///wAAAAMAAAarAAAAffw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABqsAAABEAP///wAABfEAAANRAAAA"
+      Location      [46, 53; 1440, 900]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAACtfwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwEAAAAcAA"
+"ACtQAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAVyAAAAffw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABXIAAABCAP///wAABL0AAAK1AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="

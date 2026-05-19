@@ -24,7 +24,7 @@ def multi_tasks_json_main():
         zc_step_size="1e-5",
         freq=6.78e6,
         duty=0.5,
-        disable_output=True,
+        disable_output=False,
     )
     jsonsimulation.set_model_initlization()
 

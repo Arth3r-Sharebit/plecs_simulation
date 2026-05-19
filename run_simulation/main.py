@@ -15,6 +15,7 @@ from multi_tasks_main import multi_tasks_main
 from multi_tasks_json_main import multi_tasks_json_main
 from json_main import json_main
 from multi_full_tasks_main import multi_full_tasks_main
+from multi_random_json_main import multi_random_json_main
 
 FIXED_INIT_COMMANDS = {
     "InitializationCommands": {
@@ -82,5 +83,4 @@ def main():
 
 
 if __name__ == "__main__":
-    multi_full_tasks_main()
-    multi_full_tasks_main()
+    multi_random_json_main()

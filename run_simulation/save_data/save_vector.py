@@ -3,6 +3,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import time
 import os
+import pathlib
+import rich.console
+
+
+
+console = rich.console.Console()
 
 CH_NAMES = [
     "Iin",
@@ -37,7 +43,7 @@ PORT_GROUPS = [
 ERROR_LOG = "./Output/error_log.csv"
 
 
-def save_data_and_plot(sim_results, freq, duty, rcs, rsa, csa, vin, rl, k, folder):
+def save_data_and_plot(sim_results, freq, duty, rcs, rsa, csa, vin, rl, k, folder, path: str | None = None):
     """
     保存温度曲线图和 CSV 到指定子目录（Correct 或 Wrong）。
     - 全部 20 通道：取最后 100 个开关周期求均值，存为标量（第 1 行）
@@ -48,13 +54,21 @@ def save_data_and_plot(sim_results, freq, duty, rcs, rsa, csa, vin, rl, k, folde
       第 2 行起：Time + 5 条温度时间序列
     图表：仅画温度 5 条曲线随时间变化
     """
-    for d in [
-        "./Output/Data_Correct",
-        "./Output/Data_Wrong",
-        "./Output/Pic_Correct",
-        "./Output/Pic_Wrong",
-    ]:
-        os.makedirs(d, exist_ok=True)
+    if path == None:
+        for d in [
+            "./Output/Data_Correct",
+            "./Output/Data_Wrong",
+            "./Output/Pic_Correct",
+            "./Output/Pic_Wrong",
+        ]:
+            os.makedirs(d, exist_ok=True)
+    else:
+        objpath = pathlib.Path(path)
+        if not objpath.exists():
+            console.print(
+                "[错误] 找不到输出目录, 请检查是否正确配置了输出目录", "bold red"
+            )
+            raise FileNotFoundError("Output/Data does not exist")
 
     t_full = np.array(sim_results["Time"])
     v_full = np.array(sim_results["Values"])  # (n_ch, n_samples)
@@ -120,18 +134,25 @@ def save_data_and_plot(sim_results, freq, duty, rcs, rsa, csa, vin, rl, k, folde
         f"freq{freq:.2e}_duty{int(duty * 100)}"
         f"_rcs{rcs}_rsa{rsa}_csa{csa}_vin{vin}_rl{rl}_k{k}"
     )
-    plt.savefig(f"./Output/Pic_{folder}/{tag}.png", dpi=300)
+    if path == None:
+        plt.savefig(f"./Output/Pic_{folder}/{tag}.png", dpi=300)
+    else:
+        plt.savefig(f"{objpath}/Output/Pic_{folder}/{tag}.png", dpi=300)
     plt.close()
     print(f"  [计时] 画图保存: {time.time() - _t:.1f}s")
 
     _t = time.time()
-    df.to_csv(f"./Output/Data_{folder}/{tag}.csv", index=False)
+    if path == None:
+        df.to_csv(f"./Output/Data_{folder}/{tag}.csv", index=False)
+
+    else:
+        df.to_csv(f"{objpath}/Output/Data_{folder}/{tag}.csv", index=False)
     print(f"  [计时] CSV保存: {time.time() - _t:.1f}s")
 
     return n_ch, tag
 
 
-def save_data_and_plot_json(sim_results, freq, duty, rcs, rsa, csa, vin, rl, k, folder):
+def save_data_and_plot_json(sim_results, freq, duty, rcs, rsa, csa, vin, rl, k, folder, path: str | None = None):
     """
     保存温度曲线图和 CSV 到指定子目录（Correct 或 Wrong）。
     - 全部 20 通道：取最后 100 个开关周期求均值，存为标量（第 1 行）
@@ -144,13 +165,29 @@ def save_data_and_plot_json(sim_results, freq, duty, rcs, rsa, csa, vin, rl, k, 
 
     sim_results: dict, JSON 格式数据，结构为 {"jsonrpc": "2.0", "id": 6, "result": {"Time": [...], "Values": [...]}}
     """
-    for d in [
-        "./Output/Data_Correct",
-        "./Output/Data_Wrong",
-        "./Output/Pic_Correct",
-        "./Output/Pic_Wrong",
-    ]:
-        os.makedirs(d, exist_ok=True)
+    if path == None:
+        for d in [
+            "./Output/Data_Correct",
+            "./Output/Data_Wrong",
+            "./Output/Pic_Correct",
+            "./Output/Pic_Wrong",
+        ]:
+            os.makedirs(d, exist_ok=True)
+    else:
+        objpath = pathlib.Path(path)
+        if not objpath.exists():
+            console.print(
+                "[错误] 找不到输出目录, 请检查是否正确配置了输出目录", "bold red"
+            )
+            raise FileNotFoundError("Output/Data does not exist")
+        
+        for d in [
+            f"{objpath}/Output/Data_Correct",
+            f"{objpath}/Output/Data_Wrong",
+            f"{objpath}/Output/Pic_Correct",
+            f"{objpath}/Output/Pic_Wrong",
+        ]:
+            os.makedirs(d, exist_ok=True)
 
     # 从 JSON 结果中提取 Time 和 Values
     t_full = np.array(sim_results["result"]["Time"])
@@ -217,14 +254,22 @@ def save_data_and_plot_json(sim_results, freq, duty, rcs, rsa, csa, vin, rl, k, 
 
     tag = (
         f"freq{freq:.2e}_duty{int(duty * 100)}"
-        f"_rcs{rcs}_rsa{rsa}_csa{csa}_vin{vin}_rl{rl}_k{k}"
+        f"_rcs{rcs:.2}_rsa{rsa:.2}_csa{csa:.2}_vin{vin:.2}_rl{rl:.2}_k{k:.2}"
     )
-    plt.savefig(f"./Output/Pic_{folder}/{tag}.png", dpi=300)
+    if path == None:
+        plt.savefig(f"./Output/Pic_{folder}/{tag}.png", dpi=300)
+    else:
+        plt.savefig(f"{objpath}/Output/Pic_{folder}/{tag}.png", dpi=300)
+    plt.close()
     plt.close()
     print(f"  [计时] 画图保存: {time.time() - _t:.1f}s")
 
     _t = time.time()
-    df.to_csv(f"./Output/Data_{folder}/{tag}.csv", index=False)
+    if path == None:
+        df.to_csv(f"./Output/Data_{folder}/{tag}.csv", index=False)
+    else:
+        df.to_csv(f"{objpath}/Output/Data_{folder}/{tag}.csv", index=False)
+        print(f"{objpath}/Output/Data_{folder}/{tag}.csv")
     print(f"  [计时] CSV保存: {time.time() - _t:.1f}s")
 
     return n_ch, tag
